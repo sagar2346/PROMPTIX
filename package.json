@@ -1,0 +1,11 @@
+{
+  "name": "promptix",
+  "version": "1.0.0",
+  "description": "PROMPTIX - Custom AI Automation Consulting",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "node backend/server.js",
+    "install-backend": "cd backend && npm install",
+    "setup": "npm run install-backend"
+  }
+}
