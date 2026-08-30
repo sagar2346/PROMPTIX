@@ -219,6 +219,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Meet Our Team */}
+      <section className="team-section">
+        <div className="team-header reveal">
+          <span className="section-overline">The People Behind PROMPTIX</span>
+          <h2 className="section-title">Meet Our Team</h2>
+          <p className="section-subtitle">Passionate builders dedicated to automating your business.</p>
+        </div>
+        <div className="team-grid">
+          <div className="team-card reveal">
+            <div className="team-card-img">
+              <img src="/Pragyan Khanal.png" alt="Pragyan Khanal" />
+            </div>
+            <div className="team-card-info">
+              <h3 className="team-card-name">Pragyan Khanal</h3>
+              <p className="team-card-role">Co-Founder</p>
+              <p className="team-card-desc">AI Agent Developer & Automation Specialist. Also a frontend developer building sleek, responsive interfaces.</p>
+            </div>
+          </div>
+          <div className="team-card reveal reveal-delay-1">
+            <div className="team-card-img">
+              <img src="/Sagar Dahal.png" alt="Sagar Dahal" />
+            </div>
+            <div className="team-card-info">
+              <h3 className="team-card-name">Sagar Dahal</h3>
+              <p className="team-card-role">Co-Founder</p>
+              <p className="team-card-desc">Full Stack Developer & Graphic Designer. Powers the backend and crafts the visual identity of PROMPTIX.</p>
+            </div>
+          </div>
+          <div className="team-card reveal reveal-delay-2">
+            <div className="team-card-img">
+              <img src="/Sandesh Shiwakoti.png" alt="Sandesh Shiwakoti" />
+            </div>
+            <div className="team-card-info">
+              <h3 className="team-card-name">Sandesh Shiwakoti</h3>
+              <p className="team-card-role">Founder</p>
+              <p className="team-card-desc">Digital Marketer & Company Program Handler. Drives growth and ensures smooth operations across all projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Marquee — sits just above the footer */}
       <div className="hero-marquee">
         <div className="marquee-track">
