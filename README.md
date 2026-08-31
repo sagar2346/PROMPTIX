@@ -56,17 +56,6 @@ PROMPTIX/
     └── [images]              # Branding assets
 ```
 
-## Environment Variables
-
-Copy `backend/.env.example` to `backend/.env` and configure:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `PORT` | Server port | `5000` |
-| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/promptix` |
-| `JWT_SECRET` | Secret for JWT tokens | - |
-| `ADMIN_EMAIL` | Admin login email | `admin@promptix.com` |
-| `ADMIN_PASSWORD` | Admin login password | - |
 
 ## Frontend Only
 
