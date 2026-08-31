@@ -21,27 +21,27 @@ function FlipCard({ category }) {
     <>
       <div className={`srv-flip-card ${flipped ? 'flipped' : ''}`}>
         <div className="srv-flip-inner">
-          <div className="srv-flip-front" onClick={() => setFlipped(true)}>
+          <div className="srv-flip-front" onClick={() => !flipped && setFlipped(true)}>
             {category.badge && <span className="srv-badge">{category.badge}</span>}
             <div className="srv-parent-icon">{category.icon}</div>
             <h3 className="srv-parent-title">{category.title}</h3>
             <p className="srv-parent-desc">{category.description}</p>
             <span className="srv-flip-hint">Click to view services &rarr;</span>
           </div>
-          <div className="srv-flip-back">
+          <div className="srv-flip-back" onClick={() => flipped && setFlipped(false)}>
             <div className="srv-back-header">
               <h3 className="srv-parent-title">{category.title}</h3>
               <span className="srv-back-count">{category.services.length} Services</span>
             </div>
             <div className="srv-children">
               {category.services.map((key) => (
-                <div key={key} className="srv-child" onClick={() => openPanel(key)}>
+                <div key={key} className="srv-child" onClick={(e) => { e.stopPropagation(); openPanel(key); }}>
                   <p className="srv-child-name">{services[key].name}</p>
                 </div>
               ))}
             </div>
-            <Link to="/" className="srv-quote-btn">Get a Quote</Link>
-            <button className="srv-back-btn" onClick={() => setFlipped(false)}>&larr; Back</button>
+            <Link to="/" className="srv-quote-btn" onClick={(e) => e.stopPropagation()}>Get a Quote</Link>
+            <button className="srv-back-btn" onClick={(e) => { e.stopPropagation(); setFlipped(false); }}>&larr; Back</button>
           </div>
         </div>
       </div>

@@ -1,62 +1,52 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
-import { pricingPlans } from '../data/content'
+import { servicePricing } from '../data/content'
 
-function PricingCard({ plan, index }) {
-  const [flipped, setFlipped] = useState(false)
-
+function ServiceCard({ service }) {
   return (
-    <div className={`pricing-card ${plan.popular ? 'popular' : ''} reveal ${index > 0 ? `reveal-delay-${index}` : ''}`}>
-      <div className={`pricing-card-inner ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
-        <div className="pricing-card-front">
-          <div className="card-inner">
-            {plan.popular && <div className="popular-badge">MOST POPULAR</div>}
-            {plan.offer && <div className="offer-badge" dangerouslySetInnerHTML={{ __html: plan.offer }}></div>}
-            <span className="plan-badge">{plan.badge}</span>
-            <h3 className="plan-name">{plan.name}</h3>
-            <p className="plan-click">Click to see pricing</p>
-            <div className="plan-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </div>
-          </div>
+    <div className="service-price-card">
+      <div className="service-price-header">
+        <h3 className="service-price-name">{service.name}</h3>
+        <p className="service-price-desc">{service.desc}</p>
+      </div>
+      <div className="service-price-body">
+        <div className="service-price-amount">
+          {service.oldPrice && <span className="service-old-price">{service.oldPrice}</span>}
+          <span className="service-current-price">{service.price}</span>
+          <span className="service-unit">{service.unit}</span>
         </div>
-        <div className="pricing-card-back">
-          <div className="card-inner">
-            {plan.popular && <div className="popular-badge">MOST POPULAR</div>}
-            {plan.offer && <div className="offer-badge" dangerouslySetInnerHTML={{ __html: plan.offer }}></div>}
-            <span className="plan-badge">{plan.badge}</span>
-            <h3 className="plan-name">{plan.name}</h3>
-            <div className="plan-pricing">
-              <div className="plan-price-row">
-                <span className="price-label">{plan.setupLabel || 'One-time Setup'}</span>
-                <span className="price-value">
-                  {plan.oldSetup && <span className="old-price">{plan.oldSetup}</span>}
-                  {plan.setup}
-                </span>
-              </div>
-              {plan.monthly && (
-                <div className="plan-price-row">
-                  <span className="price-label">Monthly Cost</span>
-                  <span className="price-value">
-                    {plan.oldMonthly && <span className="old-price">{plan.oldMonthly}</span>}
-                    {plan.monthly}
-                  </span>
-                </div>
-              )}
-            </div>
-            <ul className="plan-features">
-              {plan.features.map((f, i) => (
-                <li key={i}><span className="check">&#10003;</span> {f}</li>
-              ))}
-            </ul>
-            <div className="plan-delivery">{plan.delivery}</div>
-            <Link to="/" className="plan-btn" onClick={(e) => e.stopPropagation()}>
-              {plan.name === 'Enterprise' ? 'Contact Us' : 'Get Started'}
-            </Link>
-          </div>
+        <ul className="service-price-features">
+          {service.features.map((f, i) => (
+            <li key={i}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <div className="service-price-footer">
+          <span className="service-delivery">Delivery: {service.delivery}</span>
+          <a href="/contact" className="service-cta-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CategorySection({ category, isOpen, onToggle, index }) {
+  return (
+    <div id={`pricing-cat-${index}`} className={`pricing-category ${isOpen ? 'open' : ''}`}>
+      <button className="pricing-category-header" onClick={onToggle}>
+        <div className="pricing-category-icon">{category.icon}</div>
+        <h2 className="pricing-category-title">{category.category}</h2>
+        <svg className="pricing-category-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div className={`pricing-category-content ${isOpen ? 'show' : ''}`}>
+        <div className="pricing-category-grid">
+          {category.services.map((service, i) => (
+            <ServiceCard key={i} service={service} />
+          ))}
         </div>
       </div>
     </div>
@@ -65,46 +55,48 @@ function PricingCard({ plan, index }) {
 
 export default function PlansPage() {
   useReveal()
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleToggle = (index) => {
+    const wasOpen = openIndex === index
+    setOpenIndex(wasOpen ? null : index)
+    if (!wasOpen && typeof window !== 'undefined') {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(`pricing-cat-${index}`)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      })
+    }
+  }
 
   return (
-    <section className="pricing pricing-page">
-      <div className="pricing-container">
+    <section className="plans-page">
+      <div className="plans-container">
         <div className="section-header">
           <span className="section-overline">Pricing</span>
-          <h2 className="section-title">Simple, Transparent Pricing</h2>
+          <h2 className="section-title">Service Plans & Pricing</h2>
           <p className="section-subtitle">
-            No hidden fees. No surprises. Choose the plan that fits your
-            business.
+            Click a service category to view pricing details.
           </p>
         </div>
 
-        <div className="pricing-grid">
-          {pricingPlans.map((plan, i) => (
-            <PricingCard key={i} plan={plan} index={i} />
+        <div className="pricing-categories">
+          {servicePricing.map((cat, i) => (
+            <CategorySection
+              key={i}
+              index={i}
+              category={cat}
+              isOpen={openIndex === i}
+              onToggle={() => handleToggle(i)}
+            />
           ))}
         </div>
 
-        <div className="pricing-info">
-          <div className="info-card reveal">
-            <div className="card-inner">
-              <h4 className="info-title">Payment Terms</h4>
-              <ul className="info-list">
-                <li>50% upfront to start</li>
-                <li>50% upon delivery</li>
-                <li>Monthly plans billed on 1st</li>
-              </ul>
-            </div>
-          </div>
-          <div className="info-card reveal reveal-delay-1">
-            <div className="card-inner">
-              <h4 className="info-title">Payment Methods</h4>
-              <div className="payment-methods">
-                <span className="payment-badge">eSewa</span>
-                <span className="payment-badge">Khalti</span>
-                <span className="payment-badge">Bank Transfer</span>
-              </div>
-            </div>
-          </div>
+        <div className="pricing-footer-cta">
+          <h3>Need something custom?</h3>
+          <p>We build tailored solutions. Tell us what you need and we'll create a plan just for you.</p>
+          <a href="/contact" className="pricing-footer-btn">Request Custom Quote</a>
         </div>
       </div>
     </section>

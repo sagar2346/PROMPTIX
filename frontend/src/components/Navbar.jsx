@@ -41,7 +41,7 @@ export default function Navbar() {
 
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
           <Link to="/" className={isActive('/')} onClick={closeMenu}>Home</Link>
-          <Link to="/services" className={isActive('/services')} onClick={closeMenu}>Benefits</Link>
+          <Link to="/services" className={isActive('/services')} onClick={closeMenu}>Services</Link>
           <Link to="/how-it-works" className={isActive('/how-it-works')} onClick={closeMenu}>How It Works</Link>
           <Link to="/plans" className={isActive('/plans')} onClick={closeMenu}>Plans</Link>
           <Link to="/faq" className={isActive('/faq')} onClick={closeMenu}>FAQ</Link>

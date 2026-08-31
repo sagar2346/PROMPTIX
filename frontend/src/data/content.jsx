@@ -185,43 +185,198 @@ export const serviceCategories = [
   }
 ]
 
-export const pricingPlans = [
+export const servicePricing = [
   {
-    badge: 'STARTER',
-    name: 'Starter',
-    popular: false,
-    offer: '30%<br/>OFF',
-    oldSetup: 'Rs. 12,000',
-    setup: 'Rs. 8,400',
-    oldMonthly: 'Rs. 6,000',
-    monthly: 'Rs. 4,200',
-    features: ['1 AI Agent', '3 Automation Workflows', 'Weekly Maintenance', '3 Days Free Support', 'Monthly Performance Report'],
-    delivery: 'Delivery: 3-5 business days'
+    category: 'AI Automation',
+    icon: (
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><circle cx="12" cy="16" r="1"/></svg>
+    ),
+    services: [
+      {
+        name: 'WhatsApp AI Agent',
+        desc: 'Smart bot handling bookings, FAQs, and customer conversations 24/7',
+        price: 'Rs. 8,400',
+        oldPrice: 'Rs. 12,000',
+        unit: 'setup + Rs. 4,200/mo',
+        features: ['Custom trained on your data', 'Unlimited conversations', 'Booking & FAQ automation', 'Weekly maintenance', 'Free support: 3 days'],
+        delivery: '5–7 days'
+      },
+      {
+        name: 'Workflow Automation',
+        desc: 'Connect your tools and eliminate repetitive manual tasks',
+        price: 'Rs. 6,000',
+        oldPrice: 'Rs. 8,500',
+        unit: 'per workflow',
+        features: ['Up to 3 tool integrations', 'Automated triggers & actions', 'Error handling & alerts', 'Documentation', 'Free support: 3 days'],
+        delivery: '3–5 days'
+      },
+      {
+        name: 'Social Media Automation',
+        desc: 'Auto-post across all platforms from one content calendar',
+        price: 'Rs. 5,500',
+        oldPrice: 'Rs. 7,500',
+        unit: 'setup + Rs. 3,000/mo',
+        features: ['Multi-platform posting', 'AI caption & hashtag generator', 'Content calendar sync', 'Analytics dashboard', 'Free support: 5 days'],
+        delivery: '3–5 days'
+      },
+      {
+        name: 'Custom AI Agent',
+        desc: 'AI that researches, qualifies leads, and executes tasks autonomously',
+        price: 'Rs. 25,000',
+        oldPrice: 'Rs. 35,000',
+        unit: 'starting from',
+        features: ['Web browsing & research', 'Lead qualification & scoring', 'Multi-step task execution', 'Tool integrations', 'Free support: 7 days'],
+        delivery: '7–14 days'
+      }
+    ]
   },
   {
-    badge: 'GROWTH',
-    name: 'Growth',
-    popular: true,
-    offer: '30%<br/>OFF',
-    oldSetup: 'Rs. 18,000',
-    setup: 'Rs. 12,600',
-    oldMonthly: 'Rs. 9,000',
-    monthly: 'Rs. 6,300',
-    features: ['3 AI Agents', '10 Automation Workflows', 'Twice a Week Maintenance', '5 Days Free Support', 'Weekly Performance Report'],
-    delivery: 'Delivery: 5-7 business days'
+    category: 'Website Development',
+    icon: (
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    ),
+    services: [
+      {
+        name: 'Landing Page',
+        desc: 'High-converting single page optimized for leads or sales',
+        price: 'Rs. 7,500',
+        oldPrice: 'Rs. 10,000',
+        unit: 'one-time',
+        features: ['Mobile-responsive design', 'SEO optimized', 'Fast loading (< 2s)', 'Contact form integration', 'Free support: 5 days'],
+        delivery: '3–5 days'
+      },
+      {
+        name: 'Business Website',
+        desc: 'Multi-page professional website with all your business info',
+        price: 'Rs. 18,000',
+        oldPrice: 'Rs. 25,000',
+        unit: 'one-time',
+        features: ['Up to 8 pages', 'Custom design', 'Google indexing & SEO', 'Admin panel access', 'Free support: 7 days'],
+        delivery: '7–14 days'
+      },
+      {
+        name: 'E-commerce Store',
+        desc: 'Online store with products, cart, checkout & payment gateway',
+        price: 'Rs. 35,000',
+        oldPrice: 'Rs. 50,000',
+        unit: 'starting from',
+        features: ['Product catalog & listings', 'Cart & checkout flow', 'Payment gateway (eSewa/Khalti)', 'Order management', 'Free support: 14 days'],
+        delivery: '10–18 days'
+      },
+      {
+        name: 'Web App Development',
+        desc: 'Custom dashboards, booking systems & internal business tools',
+        price: 'Rs. 50,000',
+        oldPrice: 'Rs. 75,000',
+        unit: 'starting from',
+        features: ['Custom UI/UX design', 'Backend & database', 'User authentication', 'API integrations', 'Free support: 14 days'],
+        delivery: '14–30 days'
+      }
+    ]
   },
   {
-    badge: 'CUSTOM',
-    name: 'Enterprise',
-    popular: false,
-    offer: null,
-    oldSetup: null,
-    setup: 'Rs. 50,000+',
-    oldMonthly: null,
-    monthly: null,
-    setupLabel: 'Starting from',
-    features: ['Custom AI Agents', 'Custom Automation Workflows', 'Daily Maintenance + Optimization', '7 Days Free Support', 'Custom Social Media Automation'],
-    delivery: 'Delivery: 7-14 business days'
+    category: 'Application Development',
+    icon: (
+      <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+    ),
+    services: [
+      {
+        name: 'Mobile App (Android + iOS)',
+        desc: 'Cross-platform app built with React Native & Expo',
+        price: 'Rs. 60,000',
+        oldPrice: 'Rs. 85,000',
+        unit: 'starting from',
+        features: ['Both Android & iOS', 'Custom UI/UX', 'Push notifications', 'App Store deployment', 'Free support: 14 days'],
+        delivery: '21–45 days'
+      },
+      {
+        name: 'MERN Stack App',
+        desc: 'Full-stack web application with React, Node.js & MongoDB',
+        price: 'Rs. 45,000',
+        oldPrice: 'Rs. 65,000',
+        unit: 'starting from',
+        features: ['React frontend', 'Node.js + Express backend', 'MongoDB database', 'REST API', 'Free support: 14 days'],
+        delivery: '14–30 days'
+      }
+    ]
+  },
+  {
+    category: 'Graphic Design',
+    icon: (
+      <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.02 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-5.5-4.5-9.94-10-9.94z"/></svg>
+    ),
+    services: [
+      {
+        name: 'Logo & Brand Identity',
+        desc: 'Complete brand package with logo, colors & style guide',
+        price: 'Rs. 5,000',
+        oldPrice: 'Rs. 7,500',
+        unit: 'one-time',
+        features: ['3 logo concepts', 'Unlimited revisions', 'Full brand guidelines', 'All file formats (AI, PNG, SVG)', 'Business card design'],
+        delivery: '3–7 days'
+      },
+      {
+        name: 'Social Media Graphics',
+        desc: 'Scroll-stopping posts, stories & ad creatives for your brand',
+        price: 'Rs. 3,500',
+        oldPrice: 'Rs. 5,000',
+        unit: 'per 10 designs',
+        features: ['Custom branded templates', 'Instagram, Facebook, LinkedIn', 'Story & reel covers', 'Ad creatives', 'Source files included'],
+        delivery: '2–4 days'
+      }
+    ]
+  },
+  {
+    category: 'Digital Marketing',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    ),
+    services: [
+      {
+        name: 'Social Media Management',
+        desc: 'Full social media handling — content, posting & growth strategy',
+        price: 'Rs. 8,000',
+        oldPrice: 'Rs. 12,000',
+        unit: 'per month',
+        features: ['12 posts per month', 'Content calendar', 'Account management', 'Audience engagement', 'Monthly analytics report'],
+        delivery: 'Ongoing'
+      },
+      {
+        name: 'SEO Optimization',
+        desc: 'Get your website ranking higher on Google search results',
+        price: 'Rs. 6,000',
+        oldPrice: 'Rs. 9,000',
+        unit: 'per month',
+        features: ['Keyword research', 'On-page SEO', 'Technical audit', 'Monthly reporting', 'Competitor analysis'],
+        delivery: 'Ongoing'
+      }
+    ]
+  },
+  {
+    category: 'Videography & Editing',
+    icon: (
+      <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    ),
+    services: [
+      {
+        name: 'Video Editing',
+        desc: 'Professional editing with color grading, transitions & captions',
+        price: 'Rs. 2,500',
+        oldPrice: 'Rs. 4,000',
+        unit: 'per video (up to 10 min)',
+        features: ['Smooth cuts & transitions', 'Color grading', 'Captions & subtitles', 'Music & sound design', 'Multiple format export'],
+        delivery: '2–5 days'
+      },
+      {
+        name: 'Short Form Content',
+        desc: 'Reels, Shorts & TikToks optimized for maximum engagement',
+        price: 'Rs. 1,500',
+        oldPrice: 'Rs. 2,500',
+        unit: 'per video (up to 60s)',
+        features: ['Hook-first editing', 'Trending format style', 'Auto-captions', 'Platform optimized', 'Raw footage provided'],
+        delivery: '1–3 days'
+      }
+    ]
   }
 ]
 
