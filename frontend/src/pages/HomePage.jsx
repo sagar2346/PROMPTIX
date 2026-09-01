@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
+import BookingModal from '../components/BookingModal'
 
 export default function HomePage() {
   const [displayText, setDisplayText] = useState('')
+  const [showBooking, setShowBooking] = useState(false)
   const fullText = 'PTIX'
   const indexRef = useRef(0)
 
@@ -37,7 +39,7 @@ export default function HomePage() {
           per month. Built by Pragyan Khanal. Trusted by 30+ businesses.
         </p>
         <div className="hero-cta reveal reveal-delay-2">
-          <Link to="/" className="btn-primary">Book Free Consultation</Link>
+          <button onClick={() => setShowBooking(true)} className="btn-primary">Book Free Consultation</button>
           <Link to="/services" className="btn-secondary">View Our Work</Link>
         </div>
 
@@ -293,6 +295,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <BookingModal isOpen={showBooking} onClose={() => setShowBooking(false)} />
     </>
   )
 }

@@ -48,15 +48,15 @@ export default function Footer() {
                 <li><Link to="/plans" className="footer-link">Pricing</Link></li>
                 <li><Link to="/faq" className="footer-link">FAQ</Link></li>
                 <li><a href="#" className="footer-link coming-soon">Case Studies <span className="soon-tag">Coming Soon</span></a></li>
-                <li><Link to="/" className="footer-link">Contact Us</Link></li>
+                <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4 className="footer-heading">Legal</h4>
               <ul className="footer-links">
-                <li><a href="#" className="footer-link">Terms & Conditions</a></li>
-                <li><a href="#" className="footer-link">Privacy Policy</a></li>
-                <li><a href="#" className="footer-link">Refund Policy</a></li>
+                <li><Link to="/terms-conditions" className="footer-link">Terms & Conditions</Link></li>
+                <li><Link to="/privacy-policy" className="footer-link">Privacy Policy</Link></li>
+                <li><Link to="/refund-policy" className="footer-link">Refund Policy</Link></li>
                 <li><a href="#" className="footer-link">NDA Available</a></li>
               </ul>
             </div>
