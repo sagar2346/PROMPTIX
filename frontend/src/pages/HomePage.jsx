@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
-import BookingModal from '../components/BookingModal'
+import { useBooking } from '../context/BookingContext'
 
 export default function HomePage() {
   const [displayText, setDisplayText] = useState('')
-  const [showBooking, setShowBooking] = useState(false)
+  const { openBooking } = useBooking()
   const fullText = 'PTIX'
   const indexRef = useRef(0)
 
@@ -35,11 +35,13 @@ export default function HomePage() {
           </span>
         </h1>
         <p className="hero-subtitle reveal reveal-delay-1">
-          Custom AI agents and automation workflows that save you 40+ hours
-          per month. Built by Pragyan Khanal. Trusted by 30+ businesses.
+          We build custom AI agents and automation workflows that save businesses 40+ hours per month. From WhatsApp bots to full-stack web apps — we handle it all.
         </p>
         <div className="hero-cta reveal reveal-delay-2">
-          <button onClick={() => setShowBooking(true)} className="btn-primary">Book Free Consultation</button>
+          <button onClick={() => openBooking()} className="btn-primary">
+            Book Free Consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
           <Link to="/services" className="btn-secondary">View Our Work</Link>
         </div>
 
@@ -48,14 +50,17 @@ export default function HomePage() {
             <span className="trust-check">&#10003;</span>
             <span>50+ Automations Built</span>
           </div>
+          <div className="trust-divider"></div>
           <div className="trust-item">
             <span className="trust-check">&#10003;</span>
             <span>30+ Happy Clients</span>
           </div>
+          <div className="trust-divider"></div>
           <div className="trust-item">
             <span className="trust-check">&#10003;</span>
             <span>1,500+ Hours Saved</span>
           </div>
+          <div className="trust-divider"></div>
           <div className="trust-item">
             <span className="trust-check">&#10003;</span>
             <span>98% Client Satisfaction</span>
@@ -295,7 +300,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <BookingModal isOpen={showBooking} onClose={() => setShowBooking(false)} />
     </>
   )
 }

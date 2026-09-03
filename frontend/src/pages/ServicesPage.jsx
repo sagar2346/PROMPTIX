@@ -40,7 +40,6 @@ function FlipCard({ category }) {
                 </div>
               ))}
             </div>
-            <Link to="/" className="srv-quote-btn" onClick={(e) => e.stopPropagation()}>Get a Quote</Link>
             <button className="srv-back-btn" onClick={(e) => { e.stopPropagation(); setFlipped(false); }}>&larr; Back</button>
           </div>
         </div>
@@ -87,7 +86,6 @@ function FlipCard({ category }) {
               </div>
             </div>
             <div className="srv-panel-footer">
-              <Link to="/" className="srv-panel-btn srv-panel-btn-primary">Get a Quote</Link>
               <Link to="/" className="srv-panel-btn srv-panel-btn-outline">Book a Call</Link>
             </div>
           </div>

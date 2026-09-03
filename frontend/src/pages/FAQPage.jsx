@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
 import { faqData, whyChooseData } from '../data/content'
 
@@ -64,10 +63,6 @@ export default function FAQPage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="why-cta">
-            <Link to="/" className="btn-primary">Book Free Consultation</Link>
           </div>
         </div>
       </section>

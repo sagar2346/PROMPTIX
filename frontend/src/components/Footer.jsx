@@ -26,8 +26,7 @@ export default function Footer() {
               <h4 className="footer-heading">Company</h4>
               <ul className="footer-links">
                 <li><Link to="/" className="footer-link">PROMPTIX</Link></li>
-                <li><Link to="/" className="footer-link">Automate Your Business</Link></li>
-                <li><Link to="/" className="footer-link">About Pragyan</Link></li>
+                <li><Link to="/contact" className="footer-link">Automate Your Business</Link></li>
                 <li><a href="#" className="footer-link coming-soon">Blog <span className="soon-tag">Coming Soon</span></a></li>
               </ul>
             </div>
@@ -47,7 +46,6 @@ export default function Footer() {
                 <li><Link to="/how-it-works" className="footer-link">How It Works</Link></li>
                 <li><Link to="/plans" className="footer-link">Pricing</Link></li>
                 <li><Link to="/faq" className="footer-link">FAQ</Link></li>
-                <li><a href="#" className="footer-link coming-soon">Case Studies <span className="soon-tag">Coming Soon</span></a></li>
                 <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
               </ul>
             </div>
@@ -57,7 +55,6 @@ export default function Footer() {
                 <li><Link to="/terms-conditions" className="footer-link">Terms & Conditions</Link></li>
                 <li><Link to="/privacy-policy" className="footer-link">Privacy Policy</Link></li>
                 <li><Link to="/refund-policy" className="footer-link">Refund Policy</Link></li>
-                <li><a href="#" className="footer-link">NDA Available</a></li>
               </ul>
             </div>
           </div>

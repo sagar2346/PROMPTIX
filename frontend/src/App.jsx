@@ -1,4 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { BookingProvider, useBooking } from './context/BookingContext'
+import BookingModal from './components/BookingModal'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -14,8 +16,9 @@ import ScrollToTop from './components/ScrollToTop'
 
 const legalPaths = ['/privacy-policy', '/refund-policy', '/terms-conditions']
 
-export default function App() {
+function AppContent() {
   const { pathname } = useLocation()
+  const { isOpen, initialService, closeBooking } = useBooking()
   const isLegal = legalPaths.includes(pathname)
 
   return (
@@ -39,6 +42,15 @@ export default function App() {
           {!isLegal && <Footer />}
         </div>
       </div>
+      <BookingModal isOpen={isOpen} onClose={closeBooking} initialService={initialService} />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <BookingProvider>
+      <AppContent />
+    </BookingProvider>
   )
 }
